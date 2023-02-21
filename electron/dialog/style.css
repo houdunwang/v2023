@@ -1,0 +1,16 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  padding: 10px;
+}
+
+input {
+  border: solid 3px rebeccapurple;
+  width: 100%;
+  padding: 6px;
+  margin-top: 10px;
+}
