@@ -5,6 +5,9 @@ import { electronAPI } from '@electron-toolkit/preload'
 const api = {
   quit: () => {
     ipcRenderer.send('quit')
+  },
+  drag: (opt: { x: number; y: number }) => {
+    ipcRenderer.invoke('drag', opt)
   }
 }
 
