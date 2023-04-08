@@ -1,8 +1,6 @@
 <script setup lang="ts">
-// import useConfig from '@renderer/composables/useConfig'
-
 import { useConfigStore } from '@renderer/stores/useConfigStore'
-const { config, updateConfig } = useConfigStore()
+const { config } = useConfigStore()
 const devices = await navigator.mediaDevices.enumerateDevices()
 const cameras = devices.filter((d) => d.kind.includes('video'))
 </script>

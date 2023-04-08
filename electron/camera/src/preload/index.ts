@@ -8,6 +8,9 @@ const api = {
   },
   drag: (opt: { x: number; y: number }) => {
     ipcRenderer.invoke('drag', opt)
+  },
+  setWindowSize: (opt: any) => {
+    ipcRenderer.send('setWindowSize', opt)
   }
 }
 

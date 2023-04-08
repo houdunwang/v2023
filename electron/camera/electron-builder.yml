@@ -1,5 +1,5 @@
-appId: com.electron.app
-productName: camera
+appId: com.houdunren.camera
+productName: 向军大叔的摄像头
 directories:
   buildResources: build
 files:
