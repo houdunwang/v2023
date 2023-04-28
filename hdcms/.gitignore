@@ -1,5 +1,7 @@
+prisma/*
+!prisma/seed.ts
+!prisma/schema.prisma
 .env
-prisma/migrations
 # compiled output
 /dist
 /node_modules

@@ -14,8 +14,10 @@ model User {
   id       Int      @id @default(autoincrement())
   name     String
   password String
+  secret   String?
   email    String?
   mobile   String?
+  avatar   String?
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
   App      App[]
@@ -26,6 +28,7 @@ model App {
   title    String
   content  String   @db.Text
   preview  String
+  is_free  Boolean  @default(true)
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
   user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)

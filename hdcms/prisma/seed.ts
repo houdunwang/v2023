@@ -1,5 +1,6 @@
 import { PrismaClient } from '@prisma/client'
 import { Random } from 'mockjs'
+import user from './seed/user'
 const prisma = new PrismaClient()
 
 async function run() {
@@ -18,6 +19,7 @@ async function run() {
       },
     })
   }
+  await user()
 }
 
 run()
