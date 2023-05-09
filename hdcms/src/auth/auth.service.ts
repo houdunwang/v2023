@@ -1,13 +1,15 @@
 import { BadRequestException, Injectable } from '@nestjs/common'
-import { hash } from 'argon2'
+import { JwtService } from '@nestjs/jwt'
+import { User } from '@prisma/client'
+import { hash, verify } from 'argon2'
 import { PrismaService } from 'src/common/prisma.service'
-import { RegisterDto } from './dto/register.dto'
 import { LoginDto } from './dto/login.dto'
-import { validateFail } from 'src/helper'
+import { RegisterDto } from './dto/register.dto'
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService, private jwt: JwtService) {}
+
   async register(dto: RegisterDto) {
     const user = await this.prisma.user.create({
       data: {
@@ -15,7 +17,13 @@ export class AuthService {
         password: await hash(dto.password),
       },
     })
-    return user
+    return this.token(user)
+  }
+
+  private token(user: User) {
+    return {
+      token: this.jwt.sign({ id: user.id }),
+    }
   }
 
   async login(dto: LoginDto) {
@@ -25,6 +33,10 @@ export class AuthService {
       },
     })
 
-    return user
+    if (!(await verify(user.password, dto.password))) {
+      throw new BadRequestException()
+    }
+
+    return this.token(user)
   }
 }

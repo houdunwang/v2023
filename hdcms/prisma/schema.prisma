@@ -20,10 +20,10 @@ model User {
   avatar   String?
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
-  App      App[]
+  App      Soft[]
 }
 
-model App {
+model Soft {
   id       Int      @id @default(autoincrement())
   title    String
   content  String   @db.Text
@@ -31,6 +31,6 @@ model App {
   is_free  Boolean  @default(true)
   createAt DateTime @default(now())
   updateAt DateTime @updatedAt
-  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  userId   Int
+  User     User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId   Int?
 }
