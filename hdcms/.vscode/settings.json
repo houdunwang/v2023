@@ -6,6 +6,9 @@
   "files.exclude": {
     ".vscode": true,
     "test": true,
-    "dist": true
+    "dist": true,
+    "vue/core": true,
+    "vue/.vscode": true,
+    "vue/public": true
   }
 }

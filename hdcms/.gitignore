@@ -3,8 +3,9 @@ prisma/*
 !prisma/schema.prisma
 .env
 # compiled output
-/dist
-/node_modules
+dist
+node_modules
+/uploads
 
 # Logs
 logs
