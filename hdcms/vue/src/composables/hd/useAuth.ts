@@ -4,9 +4,13 @@ const storage = useStorage()
 
 export default () => {
   const form = reactive({
-    name: '2300071698@qq.com',
+    name: 'admin',
     password: 'admin888',
     password_confirmation: 'admin888',
+    captcha: {
+      key: '',
+      value: '',
+    },
   })
 
   //模型权限验证
@@ -50,8 +54,9 @@ export default () => {
         data: form,
       })
       storage.set(CacheEnum.TOKEN_NAME, token)
-      const route = router.resolve({ name: RouteEnum.ADMIN })
-      location.href = route.fullPath
+      router.push(RouteEnum.HOME)
+      // const route = router.resolve({ name: RouteEnum.ADMIN })
+      // location.href = route.fullPath
     } catch (error) {
       // useCaptcha().getCaptcha()
     }

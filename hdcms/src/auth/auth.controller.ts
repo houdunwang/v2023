@@ -1,3 +1,4 @@
+import { CaptchaService } from './../captcha/captcha.service'
 import { Body, Controller, Get, Post } from '@nestjs/common'
 import { User } from '@prisma/client'
 import { Admin } from './admin.decorator'
@@ -8,14 +9,15 @@ import { RegisterDto } from './dto/register.dto'
 
 @Controller('auth')
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService, private readonly captcha: CaptchaService) {}
   @Post('register')
   register(@Body() dto: RegisterDto) {
     return this.authService.register(dto)
   }
 
   @Post('login')
-  login(@Body() dto: LoginDto) {
+  async login(@Body() dto: LoginDto) {
+    await this.captcha.verify(dto.captcha as any)
     return this.authService.login(dto)
   }
 

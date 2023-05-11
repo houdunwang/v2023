@@ -21,8 +21,10 @@ const { login, form } = useAuth()
             />
             <HdError name="password" />
           </div>
+          <HdCaptcha class="mt-3" v-model:captcha_value="form.captcha.value" v-model:captcha_key="form.captcha.key" />
           <HdFormButton class="w-full mt-3 primary">登录</HdFormButton>
         </div>
+        <!-- {{ form }} -->
         <Footer />
       </div>
       <div class="hidden md:block relative">

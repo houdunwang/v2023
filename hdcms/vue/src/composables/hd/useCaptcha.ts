@@ -1,21 +1,16 @@
 import { http } from '@/plugins/axios'
 
 interface ICaptcha {
-  sensitive: false
   key: ''
-  img: ''
+  svg: ''
 }
 const captcha = ref<ICaptcha>()
 
 export default () => {
   const getCaptcha = async () => {
-    captcha.value = await http.request<ICaptcha>(
-      {
-        url: 'captcha/api/math',
-        baseURL: '/',
-      },
-      { clearValidateError: false },
-    )
+    captcha.value = await http.request<ICaptcha>({
+      url: 'captcha',
+    })
   }
   return { captcha, getCaptcha }
 }

@@ -79,7 +79,7 @@ export default class Axios {
         const {
           response: { status, data },
         } = error
-        const message = data.error ?? data.message
+        const message = data.message
 
         switch (status) {
           case HttpCodeEnum.UNAUTHORIZED:
