@@ -2,6 +2,8 @@ prisma/*
 !prisma/seed.ts
 !prisma/schema.prisma
 .env
+/public/*
+!/pubilc/.gitkeep
 # compiled output
 dist
 node_modules

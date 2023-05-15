@@ -7,7 +7,7 @@ import { HttpStatus } from '@nestjs/common'
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule)
   app.setGlobalPrefix('api')
-  app.useStaticAssets('uploads', { prefix: '/uploads' })
+  app.useStaticAssets('public', { prefix: '/public' })
   app.useGlobalPipes(new ValidatePipeCustom({ errorHttpStatusCode: HttpStatus.UNPROCESSABLE_ENTITY }))
   await app.listen(3000)
 }

@@ -1,4 +1,5 @@
-import { IsNotEmpty, Length, Matches } from 'class-validator'
+import { Allow, IsNotEmpty, Length, Matches } from 'class-validator'
+import { IsConfirmed } from 'src/validate/is-confirmed'
 import { IsNotExists } from 'src/validate/is-not-exists'
 
 export class RegisterDto {
@@ -10,5 +11,9 @@ export class RegisterDto {
 
   @IsNotEmpty({ message: '密码不能为空' })
   @Length(5, 20, { message: '密码不能小于5位' })
+  @IsConfirmed({ message: '两次密码不一致' })
   password: string
+
+  @Allow()
+  captcha: object
 }

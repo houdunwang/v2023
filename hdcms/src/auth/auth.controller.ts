@@ -11,7 +11,8 @@ import { RegisterDto } from './dto/register.dto'
 export class AuthController {
   constructor(private readonly authService: AuthService, private readonly captcha: CaptchaService) {}
   @Post('register')
-  register(@Body() dto: RegisterDto) {
+  async register(@Body() dto: RegisterDto) {
+    await this.captcha.verify(dto.captcha as any)
     return this.authService.register(dto)
   }
 
