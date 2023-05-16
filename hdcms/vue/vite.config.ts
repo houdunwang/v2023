@@ -45,7 +45,7 @@ export default defineConfig(({ command, mode }) => {
           target: env.VITE_API_URL,
           changeOrigin: true,
         },
-        '/captcha': {
+        '/public': {
           target: env.VITE_API_URL,
           changeOrigin: true,
         },

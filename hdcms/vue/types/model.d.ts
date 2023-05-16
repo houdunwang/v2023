@@ -1,6 +1,7 @@
 interface UserModel {
   id: number
   name: string
+  nickname: string
   email: string
   sex: number
   real_name?: any
@@ -16,6 +17,17 @@ interface UserModel {
   unionid?: string
   created_at: string
   updated_at: string
+}
+
+interface ModelSoft {
+  id: number
+  title: string
+  content: string
+  description: string
+  preview: string
+  is_free: boolean
+  createAt: string
+  updateAt: string
 }
 
 interface ConfigModel {

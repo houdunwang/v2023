@@ -16,7 +16,8 @@ const active = ref('')
             :key="index"
             :to="{ name: menu.routeName }"
             :class="{ active: $route.name == menu.routeName }"
-            @click="active = menu.routeName">
+            @click="active = menu.routeName"
+          >
             {{ menu.title }}
           </router-link>
         </div>

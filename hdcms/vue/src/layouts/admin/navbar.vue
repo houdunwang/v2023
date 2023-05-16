@@ -15,7 +15,8 @@ const { open } = useUtil()
           size="24"
           fill="#10ad57"
           class="cursor-pointer duration-300"
-          v-if="menuStore.menuState" />
+          v-if="menuStore.menuState"
+        />
         <MenuFoldOne theme="filled" size="26" fill="#10ad57" class="cursor-pointer duration-300" v-else />
       </div>
       <HdBreadcrumb class="hidden md:block" />
@@ -25,7 +26,8 @@ const { open } = useUtil()
         theme="outline"
         size="22"
         class="cursor-pointer text-gray-700 hover:text-gray-500"
-        @click="open('/detail')" />
+        @click="open('/member')"
+      />
       <HdFullScreen class="hidden 2xl:flex text-gray-600" />
       <UserAvatarMenu />
     </div>

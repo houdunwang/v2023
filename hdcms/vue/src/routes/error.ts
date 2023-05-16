@@ -5,7 +5,6 @@ import { ErrorComputer } from '@icon-park/vue-next'
 export default {
   path: '/error',
   component: () => import('@/App.vue'),
-  meta: { order: 3, menu: { title: '错误页面', icon: ErrorComputer } },
   children: [
     {
       name: RouteEnum.NOT_FOUND,

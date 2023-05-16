@@ -9,4 +9,6 @@ export class CreateSoftDto {
 
   @IsNotEmpty()
   preview: string
+  @IsNotEmpty({ message: '软件简介不能为空' })
+  description: string
 }

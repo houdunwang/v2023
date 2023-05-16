@@ -1,1 +1,6 @@
-export class CreateUserDto {}
+import { Allow } from 'class-validator'
+
+export class CreateUserDto {
+  @Allow()
+  avatar: string
+}

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const tab = ref('password')
 const form = reactive({ password: '', password_confirmation: '' })
+const { updatePassword } = useUser()
 </script>
 
 <template>
@@ -16,7 +17,7 @@ const form = reactive({ password: '', password_confirmation: '' })
             <el-input type="password" v-model="form.password_confirmation"></el-input>
           </el-form-item>
           <el-form-item>
-            <el-button type="primary">确定修改</el-button>
+            <el-button type="primary" @click="updatePassword(form)">确定修改</el-button>
           </el-form-item>
         </el-form>
       </el-tab-pane>

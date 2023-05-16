@@ -57,8 +57,8 @@ export default class Axios {
           this.loading.close()
           this.loading = undefined
         }
-        const message = response.data?.success ?? response.data?.success
-        if (message && this.options.message) {
+        const message = response.data?.message
+        if (message) {
           ElMessage({
             type: 'success',
             message,

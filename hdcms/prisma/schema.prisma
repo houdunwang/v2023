@@ -14,6 +14,7 @@ model User {
   id       Int      @id @default(autoincrement())
   name     String
   password String
+  nickname String?
   secret   String?
   email    String?
   mobile   String?
@@ -23,11 +24,12 @@ model User {
 }
 
 model Soft {
-  id       Int      @id @default(autoincrement())
-  title    String
-  content  String   @db.Text
-  preview  String
-  is_free  Boolean  @default(true)
-  createAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String   @db.Text
+  description String
+  preview     String
+  is_free     Boolean  @default(true)
+  createAt    DateTime @default(now())
+  updateAt    DateTime @updatedAt
 }
