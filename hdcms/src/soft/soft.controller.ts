@@ -17,8 +17,8 @@ export class SoftController {
   }
 
   @Get()
-  findAll(@Query('page') page: number) {
-    return this.softService.findAll(+page)
+  findAll(@Query('page') page: number = 1, @Query('row') row: number = 10) {
+    return this.softService.findAll(+page, +row)
   }
 
   @Get(':id')

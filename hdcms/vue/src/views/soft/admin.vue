@@ -1,28 +1,32 @@
 <script setup lang="ts">
+import SoftItem from '@/components/SoftItem.vue'
 const { collections, getAll } = useSoft()
-await getAll()
+const route = useRoute()
+await getAll(+(route.query.page || 1))
 </script>
 
 <template>
-  <el-card shadow="always" :body-style="{ padding: '20px' }">
-    <template #header>
-      <div>软件管理</div>
-    </template>
-    <main v-if="collections" class="grid grid-cols-5 gap-2">
-      <section v-for="soft of collections.data" class="border rounded-md">
-        <img :src="soft.preview" :alt="soft.title" />
-        <h2 class="text-center opacity-90 text-gray-900 py-3">{{ soft.title }}</h2>
-        <div class="text-sm opacity-70 p-2 line-clamp-3 h-[70px]">
-          {{ soft.description }}
+  <main class="">
+    <el-card shadow="always" :body-style="{ padding: '20px' }">
+      <template #header>
+        <div class="flex justify-between items-center">
+          软件管理
+          <el-button type="primary" size="default" @click="$router.push({ name: 'soft.create' })">上架软件</el-button>
         </div>
-
-        <div class="flex justify-center py-3 border-t mt-3">
-          <el-button type="success" plain size="small" @click="">编辑</el-button>
-          <el-button type="danger" plain size="small" @click="" class="!ml-2">删除</el-button>
-        </div>
-      </section>
-    </main>
-  </el-card>
+      </template>
+      <main v-if="collections" class="grid grid-cols-5 gap-2">
+        <SoftItem v-for="soft of collections.data" class="border rounded-md" :soft="soft" :show-button="true" />
+      </main>
+    </el-card>
+    <el-pagination
+      class="bg-white p-2 mt-3 rounded-md"
+      @current-change="$router.push({ name: 'admin.soft', query: { page: $event } })"
+      :current-page="collections?.meta.page"
+      :page-sizes="[20, 40, 80, 100]"
+      :page-size="collections?.meta.row"
+      :total="collections?.meta.total"
+      background
+    >
+    </el-pagination>
+  </main>
 </template>
-
-<style lang="scss"></style>

@@ -11,8 +11,4 @@ const store = errorStore()
   </div>
 </template>
 
-<style lang="scss" scoped>
-.hd-error {
-  @apply rounded-sm bg-[#e74c3c] text-white py-1 px-2 text-xs mt-1 opacity-60  font-bold flex items-center gap-1;
-}
-</style>
+<style lang="scss" scoped></style>

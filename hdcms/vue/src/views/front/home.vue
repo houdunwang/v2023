@@ -1,13 +1,36 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import xjImg from '@/assets/xj.jpg'
+import SoftItem from '@/components/SoftItem.vue'
+const { getAll, collections } = useSoft()
+await getAll(1, 100)
+</script>
 
 <template>
-  <div class="h-screen !w-screen bg-gray-700 flex flex-col justify-center items-center !-mt-0">
-    <img src="/images/xj.jpg" class="w-40 h-40 object-cover rounded-full border-8 border-white mb-5" />
-    <div>
-      <HdFormButton class="danger ml-2" @click="$router.push({ name: RouteEnum.ADMIN })"> 访问后台 </HdFormButton>
-      <HdFormButton class="primary ml-2" @click="$router.push({ name: RouteEnum.LOGIN })"> 用户登录 </HdFormButton>
-      <HdFormButton class="success ml-2" @click="$router.push({ name: RouteEnum.MEMBER })"> 修改资料 </HdFormButton>
-    </div>
-    <div class="text-gray-300 text-xs font-mono drop-shadow-md mt-6">每晚八点直播，欢迎来共同学习技术</div>
-  </div>
+  <main>
+    <section class="flex items-center justify-center flex-col">
+      <img :src="xjImg" alt="向军大叔" class="rounded-full hidden lg:block md:w-60 md:h-60 object-cover" />
+      <h1 class="text-5xl md:text-8xl font-extrabold text-transparent bg-clip-text mt-3">向军大叔作品</h1>
+    </section>
+    <section class="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 2xl:grid-cols-4 gap-3 mt-6">
+      <SoftItem v-for="soft of collections?.data" :soft="soft" />
+    </section>
+  </main>
 </template>
+
+<style lang="scss" scoped>
+h1 {
+  @apply bg-gradient-to-r from-blue-500 to-red-500;
+  background-size: 500%;
+  animation: titleAnimate 5s ease infinite;
+}
+@keyframes titleAnimate {
+  0%,
+  100% {
+    background-position: 0% 0%;
+  }
+
+  50% {
+    background-position: 50%;
+  }
+}
+</style>

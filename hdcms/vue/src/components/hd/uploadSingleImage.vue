@@ -5,7 +5,7 @@ const { uploadImage } = useUpload()
 
 const props = withDefaults(
   defineProps<{
-    modelValue: string
+    modelValue?: string
     url?: string
     allow_width?: number
     allow_height?: number
@@ -61,12 +61,14 @@ const request = async (options: any) => {
 </script>
 
 <template>
-  <el-upload action="" class="avatar-uploader" :http-request="request" :show-file-list="false">
-    <img v-if="imageUrl" :src="imageUrl" class="avatar" />
-    <el-icon v-else class="avatar-uploader-icon">
-      <Plus />
-    </el-icon>
-  </el-upload>
+  <div class="">
+    <el-upload action="" class="avatar-uploader" :http-request="request" :show-file-list="false">
+      <img v-if="imageUrl" :src="imageUrl" class="avatar" />
+      <el-icon v-else class="avatar-uploader-icon">
+        <Plus />
+      </el-icon>
+    </el-upload>
+  </div>
 </template>
 
 <style scoped>

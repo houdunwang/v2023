@@ -16,7 +16,7 @@ const storeUser = useUserStore()
           <ElImage :src="storeUser.user.avatar" fit="cover" class="w-7 h-7 rounded-sm" />
           <div class="flex flex-col text-xs ml-2 text-gray-600 font-light">
             {{ storeUser.user?.name }}
-            <span>注册于 {{ dayjs(storeUser.user?.created_at).fromNow() }} </span>
+            <span> {{ dayjs(storeUser.user?.created_at).fromNow() }}注册 </span>
           </div>
         </span>
         <template #dropdown>
@@ -32,12 +32,38 @@ const storeUser = useUserStore()
     <section v-else class="flex items-stretch gap-2">
       <router-link
         :to="{ name: RouteEnum.LOGIN }"
-        class="px-3 py-1 flex text-sm items-center border shadow-sm rounded-md bg-slate-100 hover:bg-indigo-500 hover:!text-white duration-300">
+        class="
+          px-3
+          py-1
+          flex
+          text-sm
+          items-center
+          border
+          shadow-sm
+          rounded-md
+          bg-slate-100
+          hover:bg-indigo-500 hover:!text-white
+          duration-300
+        "
+      >
         登录
       </router-link>
       <router-link
         :to="{ name: RouteEnum.REGISTER }"
-        class="px-3 py-1 flex text-sm items-center border shadow-sm rounded-md bg-slate-100 hover:bg-indigo-500 hover:!text-white duration-300">
+        class="
+          px-3
+          py-1
+          flex
+          text-sm
+          items-center
+          border
+          shadow-sm
+          rounded-md
+          bg-slate-100
+          hover:bg-indigo-500 hover:!text-white
+          duration-300
+        "
+      >
         注册
       </router-link>
     </section>

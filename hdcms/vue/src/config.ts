@@ -25,6 +25,10 @@ export default {
         title: '后台管理',
       },
       {
+        routeName: RouteEnum.MEMBER,
+        title: '资料修改',
+      },
+      {
         routeName: RouteEnum.HOME,
         title: '网站首页',
       },

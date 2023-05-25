@@ -19,18 +19,18 @@ export default [
         component: () => import('@/views/soft/admin.vue'),
         meta: { title: '软件管理', menu: { title: '软件管理' } },
       },
-      // {
-      //   name: 'admin.animateList',
-      //   path: 'animateList',
-      //   component: () => import('@/views/admin/animateList.vue'),
-      //   meta: { title: '动态列表', menu: { title: '动态列表' } },
-      // },
-      // {
-      //   name: 'admin.util',
-      //   path: 'admin/util',
-      //   component: () => import('@/views/admin/util.vue'),
-      //   meta: { title: '组合API', menu: { title: '组合API' } },
-      // },
+      {
+        name: 'soft.create',
+        path: 'soft/create',
+        component: () => import('@/views/soft/form.vue'),
+        meta: { title: '软件发布' },
+      },
+      {
+        name: 'soft.update',
+        path: 'soft/update/:id',
+        component: () => import('@/views/soft/form.vue'),
+        meta: { title: '软件修改' },
+      },
     ],
   },
   // {

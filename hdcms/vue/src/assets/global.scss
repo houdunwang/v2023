@@ -10,3 +10,7 @@ body {
 .el-form-item__error {
   @apply hidden;
 }
+
+.hd-error {
+  @apply rounded-sm bg-[#e74c3c] text-white py-1 px-2 text-xs mt-1 opacity-60  font-bold flex items-center gap-1;
+}

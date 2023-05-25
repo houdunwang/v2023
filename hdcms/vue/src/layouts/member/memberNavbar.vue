@@ -19,7 +19,8 @@ const { open } = useUtil()
               <el-dropdown-item
                 v-for="(menu, index) in config.member.menu"
                 :key="index"
-                @click="$router.push({ name: menu.routeName })">
+                @click="$router.push({ name: menu.routeName })"
+              >
                 {{ menu.title }}
               </el-dropdown-item>
             </el-dropdown-menu>

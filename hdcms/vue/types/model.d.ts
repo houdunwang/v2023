@@ -30,6 +30,28 @@ interface ModelSoft {
   updateAt: string
 }
 
+interface CommentModel {
+  id: number
+  content: string
+  createAt: string
+  updateAt: string
+  userId: number
+  softId: number
+  commentId?: any
+  user: UserModel
+  replys: Reply[]
+}
+
+interface Reply {
+  id: number
+  content: string
+  createAt: string
+  updateAt: string
+  userId: number
+  softId: number
+  commentId: number
+}
+
 interface ConfigModel {
   [key: string]: Record<string, any>
 }
