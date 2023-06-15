@@ -39,17 +39,7 @@ interface CommentModel {
   softId: number
   commentId?: any
   user: UserModel
-  replys: Reply[]
-}
-
-interface Reply {
-  id: number
-  content: string
-  createAt: string
-  updateAt: string
-  userId: number
-  softId: number
-  commentId: number
+  replys: CommentModel[]
 }
 
 interface ConfigModel {

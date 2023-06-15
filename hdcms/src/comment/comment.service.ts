@@ -24,13 +24,15 @@ export class CommentService {
     })
   }
 
-  findAll(sid: number) {
-    return this.prisma.comment.findMany({
+  async findAll(sid: number) {
+    const comments = await this.prisma.comment.findMany({
       where: {
         softId: sid,
+        AND: [{ commentId: null }],
       },
-      include: { user: true, replys: true },
+      include: { user: true, replys: { include: { user: true } } },
     })
+    return comments
   }
 
   remove(id: number) {

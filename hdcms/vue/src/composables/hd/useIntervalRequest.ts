@@ -6,7 +6,7 @@ const storage = useStorage()
 let intervalId: undefined | number = 0
 const time = ref<number>(0)
 
-export default (timeout: number, fn: () => Promise<void>) => {
+export default (timeout: number, fn: (...data: any[]) => Promise<void>) => {
   //定时器定义
   const interval = () => {
     intervalId = setInterval(() => {
@@ -19,7 +19,7 @@ export default (timeout: number, fn: () => Promise<void>) => {
   }
 
   //执行函数
-  const exec = async (...args: []) => {
+  const exec = async (...args: any[]) => {
     if (storage.get(key)) return
     await fn.apply(null, args)
     storage.set(key, dayjs(), timeout)
