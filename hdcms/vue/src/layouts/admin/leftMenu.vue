@@ -35,7 +35,8 @@ const go = (route: RouteRecordRaw) => {
           size="18"
           fill="#dcdcdc"
           class="mr-2"
-          @click="$router.push({ name: RouteEnum.HOME })" />
+          @click="$router.push({ name: RouteEnum.HOME })"
+        />
         <span class="text-md cursor-pointer" @click="$router.push({ name: RouteEnum.ADMIN })">晚八点直播</span>
       </div>
       <!-- 菜单 -->
@@ -43,7 +44,7 @@ const go = (route: RouteRecordRaw) => {
         <dl v-for="(route, index) of routes" :key="index">
           <dt>
             <section>
-              <component :is="route.meta.menu?.icon" size="15" fill="#dcdcdc" class="mr-2" />
+              <component :is="route.meta.menu?.icon!" fill="#dcdcdc" class="mr-2" />
               <span class="text-md">{{ route.meta.menu?.title }}</span>
             </section>
           </dt>
@@ -53,7 +54,8 @@ const go = (route: RouteRecordRaw) => {
               :key="key"
               @click="go(r)"
               :class="{ active: $route.name == r.name }"
-              v-show="r.meta?.menu">
+              v-show="r.meta?.menu"
+            >
               {{ r.meta?.menu?.title }}
             </div>
           </dd>

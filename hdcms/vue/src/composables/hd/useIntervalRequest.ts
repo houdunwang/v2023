@@ -1,6 +1,7 @@
 import dayjs from 'dayjs'
 import { ref } from 'vue'
 import useStorage from './useStorage'
+import { ElMessage } from 'element-plus'
 const key = 'interval_exec_time'
 const storage = useStorage()
 let intervalId: undefined | number = 0
@@ -20,7 +21,12 @@ export default (timeout: number, fn: (...data: any[]) => Promise<void>) => {
 
   //执行函数
   const exec = async (...args: any[]) => {
-    if (storage.get(key)) return
+    if (storage.get(key))
+      return ElMessage({
+        message: `请${time.value}秒后操作`,
+        type: 'error',
+        // grouping: true,
+      })
     await fn.apply(null, args)
     storage.set(key, dayjs(), timeout)
     interval()

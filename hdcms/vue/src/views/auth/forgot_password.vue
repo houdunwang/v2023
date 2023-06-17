@@ -12,8 +12,8 @@ const { form, findPassword } = useAuth()
         <div>
           <h2 class="text-center text-gray-700 text-lg mt-3">找回密码</h2>
           <div class="mt-8">
-            <HdFormInput v-model="form.account" placeholder="请输入邮箱或手机号" v-clearError="'account'" />
-            <HdError name="account" />
+            <HdFormInput v-model="form.name" placeholder="请输入邮箱或手机号" v-clearError="'name'" />
+            <HdError name="name" />
             <!-- <CodeSend v-model:account="form.account" v-model:code="form.code" type="exists" class="mt-3" /> -->
 
             <HdFormInput v-model="form.password" class="mt-3" type="password" placeholder="请输入新密码" />

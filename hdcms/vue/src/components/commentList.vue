@@ -6,9 +6,12 @@ import CommentItem from './commentItem.vue'
 const { sid } = defineProps<{ sid: number }>()
 const { collections, findAll, model, add, del } = useComment(sid)
 await findAll()
-const schema = yup.object({
-  content: yup.string().required('内容不能为空').min(10, '最少输入10个字符'),
+const { exec, time } = useIntervalRequest(20, (data) => {
+  return add(data)
 })
+// const schema = yup.object({
+//   content: yup.string().required('内容不能为空').min(10, '最少输入10个字符'),
+// })
 </script>
 <template>
   <main>
@@ -22,19 +25,21 @@ const schema = yup.object({
     </section>
     <!-- 回复框 -->
     <section class="py-3">
-      <Form
+      <!-- <Form
         :validation-schema="schema"
         #default="{ handleSubmit }"
         :validate-on-mount="false"
         :key="collections.length"
-      >
-        <Field name="content" class="border" v-model="model.content" :validate-on-input="true">
-          <HdMarkdownEditor v-model="model.content" />
-        </Field>
+      > -->
+      <!-- <Field name="content" class="border" v-model="model.content" :validate-on-input="true"> -->
+      <HdMarkdownEditor v-model="model.content" />
+      <HdError name="content" />
+      <!-- {{ time }} -->
+      <!-- </Field> -->
 
-        <ErrorMessage name="content" class="hd-error" as="div" />
-        <el-button type="primary" size="default" @click="handleSubmit($event, add)" class="mt-3"> 保存提交 </el-button>
-      </Form>
+      <!-- <ErrorMessage name="content" class="hd-error" as="div" /> -->
+      <el-button type="primary" size="default" @click="exec(model)" class="mt-3"> 保存提交 </el-button>
+      <!-- </Form> -->
     </section>
   </main>
 </template>
