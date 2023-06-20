@@ -1,0 +1,14 @@
+// html {
+//   -webkit-app-region: drag;
+// }
+#pic {
+  -webkit-app-region: drag;
+}
+body {
+  @apply w-screen h-screen bg-gray-500;
+  // // width: 100vw;
+  // height: 100vh;;
+}
+textarea {
+  -webkit-app-region: no-drag;
+}
