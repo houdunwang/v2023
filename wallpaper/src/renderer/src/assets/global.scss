@@ -1,0 +1,12 @@
+.drag,
+body {
+  -webkit-app-region: drag;
+}
+
+.nodrag {
+  -webkit-app-region: no-drag;
+}
+
+body {
+  @apply w-screen h-screen bg-gray-400;
+}

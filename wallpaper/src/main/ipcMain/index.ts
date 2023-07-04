@@ -1,0 +1,2 @@
+import './setWallpaper'
+import './downloadImage'
