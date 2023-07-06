@@ -31,7 +31,7 @@ onMounted(() => {
       draggable="false"
     />
     <div
-      class="cursor-pointer bg-gray-200 text-center py-3 m-3 rounded-lg hover:bg-gray-300 duration-500 opacity-80 shadow-sm nodrag"
+      class="cursor-pointer bg-gray-300 opacity-70 hover:opacity-100 text-center py-3 m-3 rounded-lg hover:shadow-sm duration-500 nodrag"
       @click="setWallpaper"
     >
       设为壁纸
