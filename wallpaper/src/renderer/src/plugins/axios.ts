@@ -2,7 +2,8 @@ import axios from 'axios'
 import { ElLoading, ElMessage } from 'element-plus'
 
 const http = axios.create({
-  baseURL: import.meta.env.DEV ? 'http://localhost:3000' : 'https://www.hdcms.com/api',
+  // baseURL: import.meta.env.DEV ? 'http://localhost:3000' : 'https://www.hdcms.com/api',
+  baseURL: 'http://localhost:3000',
   timeout: 10000
 })
 

@@ -1,6 +1,6 @@
-import { IpcMainInvokeEvent, dialog, ipcMain } from 'electron'
+import { dialog, ipcMain } from 'electron'
 
-ipcMain.handle('setImageDirectory', async (_event: IpcMainInvokeEvent) => {
+ipcMain.handle('setImageDirectory', async () => {
   const res = await dialog.showOpenDialog({
     title: '选择图片保存目录',
     properties: ['createDirectory', 'openDirectory']
@@ -8,4 +8,5 @@ ipcMain.handle('setImageDirectory', async (_event: IpcMainInvokeEvent) => {
   if (!res.canceled && res.filePaths.length) {
     return res.filePaths[0]
   }
+  return undefined
 })

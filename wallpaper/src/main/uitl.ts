@@ -1,7 +1,6 @@
 import { dialog } from 'electron'
 import fetch from 'node-fetch'
 import { createWriteStream } from 'node:fs'
-import { resolve } from 'node:path'
 import { pipeline } from 'node:stream'
 import { promisify } from 'node:util'
 

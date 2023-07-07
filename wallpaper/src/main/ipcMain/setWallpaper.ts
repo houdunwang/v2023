@@ -1,4 +1,4 @@
-import { IpcMainEvent, dialog, ipcMain } from 'electron'
+import { IpcMainEvent, ipcMain } from 'electron'
 import { resolve } from 'path'
 import wallpaper from 'wallpaper'
 import { downloadFile } from '../uitl'

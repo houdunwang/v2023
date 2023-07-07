@@ -1,5 +1,5 @@
-appId: com.electron.app
-productName: electron-app
+appId: com.houdunren.app
+productName: houdunren-wallpaper
 directories:
   buildResources: build
 files:
@@ -13,7 +13,7 @@ asarUnpack:
   - resources/**
 afterSign: build/notarize.js
 win:
-  executableName: electron-app
+  executableName: houdunren-wallpaper
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
