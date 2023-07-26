@@ -7,11 +7,11 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #1abc9c;
-  @include size(100vw, 100vh);
-  @include flex();
-}
+// body {
+//   background-color: #1abc9c;
+//   @include size(100vw, 100vh);
+//   @include flex();
+// }
 
 .main {
   display: flex;
@@ -24,7 +24,7 @@ body {
 .main > p::after {
   content: ':';
   display: block;
-  @include size(50px, $height);
+  @include size(10px, $height);
   font: bold $height arial;
   text-align: center;
   line-height: $height;
@@ -35,11 +35,11 @@ body {
   &::after {
     display: block;
     border-radius: 5px;
-    @include size($width, $height/2);
+    @include size($width, calc($height/2));
     text-align: center;
     font: bold $height arial;
     overflow: hidden;
-    color: white;
+    color: $color;
     background-color: $bgColor;
   }
   &::before {
@@ -52,7 +52,7 @@ body {
   }
 }
 .main > section > div:nth-child(2) {
-  @include size($width, $height/2);
+  @include size($width, calc($height/2));
   transform-style: preserve-3d;
   backface-visibility: hidden;
   transition: 0.5s;

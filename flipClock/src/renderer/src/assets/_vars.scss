@@ -1,3 +1,4 @@
-$width: 100px;
-$height: 160px;
-$bgColor: #000;
+$width: var(--width, 35px);
+$height: calc($width * 1.5);
+$bgColor: var(--bgColor, #f1c40f);
+$color: var(--color, #fff);
