@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .drag {
   -webkit-app-region: drag;
 }
@@ -8,4 +11,15 @@ select,
 textarea,
 option {
   -webkit-app-region: no-drag;
+}
+
+body {
+  // background-color: yellowgreen;
+  width: 100vw;
+  height: 100vh;
+}
+
+#app {
+  // background-color: coral;
+  padding: 5px;
 }
