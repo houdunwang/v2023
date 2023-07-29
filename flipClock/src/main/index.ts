@@ -6,11 +6,12 @@ import './ipc'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 310,
-    height: 400,
+    width: 320,
+    height: 600,
     show: false,
     x: 1500,
     y: 100,
+    hasShadow: false,
     maximizable: false,
     resizable: false,
     frame: false,

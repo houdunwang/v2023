@@ -2,7 +2,6 @@
 import FlipClock from '@renderer/composables/FlipClock'
 import { onMounted, watch } from 'vue'
 import '@renderer/assets/flipClock.scss'
-import FooterVue from '@renderer/components/footer.vue'
 import { useConfigStore } from '@renderer/store/useConfigStore'
 const { config } = useConfigStore()
 const instance = new FlipClock({ el: '#hd', ...config.clock })
@@ -18,18 +17,27 @@ watch(
 onMounted(() => {
   instance.render()
 })
+
+//刷新倒计时
+const refresh = () => {
+  if (config.clock.type == 'clock') return
+  instance
+    .destroy()
+    .config({ el: '#hd', ...config.clock })
+    .render()
+}
 </script>
 
 <template>
   <main>
     <div
       id="hd"
+      @dblclick="refresh"
       :style="{
         '--bgColor': config.clock.bgColor,
         '--color': config.clock.color
       }"
     ></div>
-    <FooterVue />
   </main>
 </template>
 
