@@ -3,7 +3,7 @@ import Clock from '@renderer/views/Clock.vue'
 import Config from '@renderer/views/Config.vue'
 
 const routes = [
-  { name: 'clock', path: '/', component: Clock },
+  { name: 'clock', path: '/:any(.*)*', component: Clock },
   { name: 'config', path: '/config', component: Config }
 ]
 

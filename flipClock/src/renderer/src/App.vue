@@ -10,6 +10,7 @@ setIgnoreMouseEvents()
 <template>
   <Suspense>
     <RouterView #default="{ Component }">
+      <div class="bg-white"></div>
       <div class="">
         <div class="flex justify-center w-full mb-2 drag">
           <crown theme="outline" size="35" class="text-yellow-400" />
