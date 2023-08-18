@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: videomerge
+productName: electron-app
 directories:
   buildResources: build
 files:
@@ -13,7 +13,7 @@ asarUnpack:
   - resources/**
 afterSign: build/notarize.js
 win:
-  executableName: videomerge
+  executableName: electron-app
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}

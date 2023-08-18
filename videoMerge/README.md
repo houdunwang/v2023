@@ -1,4 +1,4 @@
-# videomerge
+# electron-app
 
 An Electron application with Vue and TypeScript
 
