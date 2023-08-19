@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import { ref } from 'vue'
 
 export const useConfigStore = defineStore(
-  'counter',
+  'config',
   () => {
     const config = ref({
       page: 'camera',
