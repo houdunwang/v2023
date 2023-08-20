@@ -5,7 +5,8 @@ export default defineStore(
   'config',
   () => {
     const config = ref({
-      name: 'abc'
+      preVideo: '',
+      endVideo: ''
     })
 
     return { config }

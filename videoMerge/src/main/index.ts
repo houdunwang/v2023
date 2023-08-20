@@ -7,9 +7,12 @@ function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 400,
-    height: 500,
+    height: 700,
+    minWidth: 400,
+    minHeight: 500,
     x: 1500,
     y: 180,
+    resizable: false,
     show: false,
     frame: false,
     alwaysOnTop: true,
@@ -20,7 +23,7 @@ function createWindow(): void {
       sandbox: false
     }
   })
-
+  if (is.dev) mainWindow.webContents.openDevTools()
   mainWindow.on('ready-to-show', () => {
     mainWindow.show()
   })

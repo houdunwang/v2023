@@ -1,4 +1,3 @@
-body,
 .drag {
   -webkit-app-region: drag;
   //菜单图标与文字间距
@@ -16,4 +15,5 @@ option {
 body {
   width: 100vw;
   height: 100vh;
+  @apply bg-[#2c3e50] overflow-hidden;
 }
