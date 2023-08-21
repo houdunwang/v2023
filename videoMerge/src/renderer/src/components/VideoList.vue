@@ -2,7 +2,7 @@
 import { Plus, UpdateRotation, CloseOne } from '@icon-park/vue-next'
 import { ElMessage, UploadRequestOptions } from 'element-plus'
 import { ref } from 'vue'
-const files = ref<string[]>(['abc', 'eieioioe'])
+const files = ref<string[]>([])
 const httpRequest = (options: UploadRequestOptions) => {
   const file = options.file.path.split('/').pop()!
   const isExists = files.value.some((f) => f == file)
