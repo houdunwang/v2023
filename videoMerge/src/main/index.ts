@@ -2,6 +2,7 @@ import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
+import './ffmpeg'
 
 function createWindow(): void {
   // Create the browser window.
@@ -10,9 +11,9 @@ function createWindow(): void {
     height: 700,
     minWidth: 400,
     minHeight: 500,
-    x: 1500,
+    x: 1900,
     y: 180,
-    resizable: false,
+    // resizable: false,
     show: false,
     frame: false,
     alwaysOnTop: true,
