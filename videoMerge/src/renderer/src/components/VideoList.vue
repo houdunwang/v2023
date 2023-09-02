@@ -1,19 +1,8 @@
 <script setup lang="ts">
-import { Plus, UpdateRotation, CloseOne } from '@icon-park/vue-next'
-import { ElMessage, UploadRequestOptions } from 'element-plus'
-import { ref } from 'vue'
-const files = ref<string[]>([])
-const httpRequest = (options: UploadRequestOptions) => {
-  const file = options.file.path.split('/').pop()!
-  const isExists = files.value.some((f) => f == file)
-  if (isExists) {
-    ElMessage.error(`${file}已存在`)
-  } else files.value?.push(file)
-}
+import { CloseOne, Plus, UpdateRotation } from '@icon-park/vue-next'
+import useVideo from '@renderer/composables/useVideo'
 
-const removeVideo = (index: number) => {
-  files.value.splice(index, 1)
-}
+const { files, httpRequest, removeVideo, isRun, run } = useVideo()
 </script>
 
 <template>
@@ -25,8 +14,14 @@ const removeVideo = (index: number) => {
 
       <div
         class="w-20 h-20 bg-white flex justify-center items-center rounded-md border border-gray-200 cursor-pointer"
+        @click="run"
       >
-        <update-rotation theme="outline" size="48" class="text-gray-600 animate-spin" />
+        <update-rotation
+          theme="outline"
+          size="48"
+          class="text-gray-600"
+          :class="{ 'animate-spin': isRun }"
+        />
       </div>
     </section>
     <section class="text-center text-white my-3 text-xs opacity-40 font-light">
@@ -40,9 +35,10 @@ const removeVideo = (index: number) => {
         <div
           v-for="(file, index) of files"
           :key="index"
-          class="group bg-[#34495e] text-gray-300 opacity-80 py-1 px-3 my-2 rounded-md flex justify-between items-center hover:bg-white hover:text-[#2c3e50] hover:opacity-90 duration-300 cursor-pointer"
+          class="group item bg-[#34495e] text-gray-300 opacity-80 py-1 px-3 my-2 rounded-md flex justify-between items-center hover:bg-white hover:text-[#2c3e50] hover:opacity-90 duration-300 cursor-pointer"
+          :style="`--process:${file.process}%`"
         >
-          <div class="text-xs opacity-70">{{ file }}</div>
+          <div class="text-xs opacity-70">{{ file.name }}</div>
 
           <close-one
             theme="outline"
@@ -65,6 +61,14 @@ const removeVideo = (index: number) => {
 <style lang="scss" scoped>
 :deep(.el-upload-dragger) {
   @apply w-20 h-20 flex justify-center items-center;
+}
+.item {
+  @apply relative overflow-hidden;
+  &::before {
+    content: '';
+    @apply bg-green-700 absolute left-0 top-0 bottom-0;
+    width: var(--process);
+  }
 }
 // .run {
 //   animation: rotate 2s both infinite linear;

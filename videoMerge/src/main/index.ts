@@ -2,17 +2,16 @@ import { app, shell, BrowserWindow } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import icon from '../../resources/icon.png?asset'
-import './ffmpeg'
-
+import './ipc'
 function createWindow(): void {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
     width: 400,
-    height: 700,
+    height: 500,
     minWidth: 400,
     minHeight: 500,
     x: 1900,
-    y: 180,
+    y: 150,
     // resizable: false,
     show: false,
     frame: false,

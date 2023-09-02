@@ -2,26 +2,29 @@ import ffmpegPath from '@ffmpeg-installer/ffmpeg'
 import ffprobePath from '@ffprobe-installer/ffprobe'
 import ffmpeg from 'fluent-ffmpeg'
 import { promisify } from 'util'
+import { IFile } from './ipc'
 ffmpeg.setFfmpegPath(ffmpegPath.path)
 ffmpeg.setFfprobePath(ffprobePath.path)
 
 class VideoMerge {
   private ffmpeg: ffmpeg.FfmpegCommand
-  private files: string[] = []
+  private files: IFile = { file: '', endVideo: '', preVideo: '' }
   private totalTime = 0
 
   constructor() {
     this.ffmpeg = ffmpeg()
   }
 
-  videos(files: string[]) {
-    this.files = files
-    return this
-  }
+  // private videos(files: IFile) {
+  //   this.files = files
+  //   return this
+  // }
 
   private async getTotalTime() {
+    const files = Object.values(this.files).filter((f) => f)
+    // console.log(files)
     const nums = await Promise.all(
-      this.files.map(async (file) => {
+      files.map(async (file) => {
         const {
           format: { duration }
         } = (await promisify(ffmpeg.ffprobe)(file)) as ffmpeg.FfprobeData
@@ -32,7 +35,10 @@ class VideoMerge {
   }
 
   private videosAdd() {
-    this.files.forEach((file) => this.ffmpeg.mergeAdd(file))
+    if (this.files.preVideo) this.ffmpeg.mergeAdd(this.files.preVideo)
+    this.ffmpeg.mergeAdd(this.files.file)
+    if (this.files.endVideo) this.ffmpeg.mergeAdd(this.files.endVideo)
+    // this.files.forEach((file) => this.ffmpeg.mergeAdd(file))
   }
 
   private progress(progress: any) {
@@ -41,16 +47,18 @@ class VideoMerge {
     times.forEach((time, index) => {
       runTotalTime += Math.pow(60, 2 - index) * time
     })
+    //文件名  进度数值
     console.log((runTotalTime / this.totalTime) * 100)
   }
-  async run() {
-    await this.getTotalTime()
+  async run(files: IFile) {
+    this.files = files
 
+    await this.getTotalTime()
     this.videosAdd()
     this.ffmpeg
       .on('progress', this.progress.bind(this))
       .on('error', (err) => {
-        // console.log(err)
+        console.log(err)
       })
       .on('end', function () {
         // console.log('转换完成')
@@ -62,10 +70,10 @@ class VideoMerge {
       .save('/Users/hd/live/v2023/videoMerge/b.mp4')
   }
 }
-const files = ['/Users/hd/live/v2023/videoMerge/a1.mp4', '/Users/hd/live/v2023/videoMerge/a2.mp4']
+// const files = ['/Users/hd/live/v2023/videoMerge/a1.mp4', '/Users/hd/live/v2023/videoMerge/a2.mp4']
 
-const instance = new VideoMerge()
-instance.videos(files).run()
+export default new VideoMerge()
+// instance.videos(files).run()
 // ffmpeg()
 //获取多个视频的总时长
 // Promise.all(

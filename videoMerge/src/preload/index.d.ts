@@ -1,8 +1,11 @@
+import { IFile } from './../main/ipc'
 import { ElectronAPI } from '@electron-toolkit/preload'
 
 declare global {
   interface Window {
     electron: ElectronAPI
-    api: unknown
+    api: {
+      videoMerge: (files: IFile) => void
+    }
   }
 }
