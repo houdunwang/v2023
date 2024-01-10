@@ -1,8 +1,8 @@
 ## 后盾人 / 2023年视频教程代码
 
-本项目为视频代码或直播课程代码，希望大家能给个 `star` 这是对我们最好的鼓励和肯定。
+本项目为视频或直播代码，你可以在 [后盾人](https://gitee.com/link?target=https%3A%2F%2Fwww.houdunren.com) 网站通过视频学习。
 
-> 更多视频教程请访问 [ houdunren.com](houdunren.com) 学习
+> 兄弟姐妹们给个 Star 鼓励我一下吧
 
 
 
@@ -12,9 +12,11 @@
 
 ## 目录说明
 
-| 目录     | 说明             | 使用技术                                      |
-| -------- | ---------------- | --------------------------------------------- |
-| electron | electron新手启航 | Electron、Css、Vite、Vue、Typescript、Node.js |
+| 目录      | 说明              | 使用技术                                                  |
+| --------- | ----------------- | --------------------------------------------------------- |
+| electron  | 桌面摄像头软件    | Electron、Css、Vite、Vue、Typescript、Node.js、Element UI |
+| flipClock | Electron 翻转时钟 | Electron、Css、Vite、Vue、Typescript、Node.js、Element UI |
+| wallpaper | 桌面壁纸软件      | Electron、Css、Vite、Vue、Typescript、Node.js、Element UI |
 
 
 
@@ -39,6 +41,7 @@
 
 | 年份      | GitHub                                                       | Gitee                                                        |
 | --------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 2024      | [https://github.com/houdunwang/v2024](https://github.com/houdunwang/v2024) | [https://gitee.com/houdunren/v2024](https://gitee.com/houdunren/v2024) |
 | 2023      | [https://github.com/houdunwang/v2023](https://github.com/houdunwang/v2023) | [https://gitee.com/houdunren/v2023](https://gitee.com/houdunren/v2023) |
 | 2022      | [https://github.com/houdunwang/v2022](https://github.com/houdunwang/v2022) | [https://gitee.com/houdunren/v2022](https://gitee.com/houdunren/v2022) |
 | 2021      | [https://github.com/houdunwang/v2021](https://github.com/houdunwang/v2021) | [https://gitee.com/houdunren/v2021](https://gitee.com/houdunren/v2021) |
